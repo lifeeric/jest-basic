@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 export const app = (x, y) => x + y;
 
 export const total = (shipping, subTotal) => {
@@ -12,5 +14,10 @@ export const functions = {
         user['last'] = 'Eric'
 
         return user;
-    }
+    },
+    fetchUser: () => axios
+        .get('https://jsonplaceholder.typicode.com/users/1')
+        .then( res => res.data)
+        .catch(err => 'err')
+
 }
